@@ -1,0 +1,83 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  displayName  String
+  role         String   @default("user") // user | admin
+  avatarUrl    String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  prompts      Prompt[] @relation("PromptAuthor")
+}
+
+model Category {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  name         String
+  description  String   @default("")
+  contentTypes String   @default("[\"image\"]") // JSON array
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  prompts      Prompt[]
+}
+
+model Prompt {
+  id                     String   @id @default(cuid())
+  slug                   String   @unique
+  title                  String
+  shortDescription       String   @default("")
+  contentType            String // image | video | work
+  categoryId             String?
+  category               Category? @relation(fields: [categoryId], references: [id])
+  tags                   String   @default("[]") // JSON
+  language               String   @default("en")
+  promptTemplate         String
+  negativePrompt         String?
+  variables              String   @default("[]") // JSON
+  previewUrl             String?
+  previewAlt             String   @default("")
+  previewWidth           Int      @default(800)
+  previewHeight          Int      @default(1000)
+  previewGradient        String   @default("preview-gradient-1")
+  previewKind            String   @default("image") // image | gradient | work
+  previewFormat          String   @default("illustrative")
+  previewLabel           String?
+  supportedTools         String   @default("[]") // JSON
+  requiresReferenceImage Boolean  @default(false)
+  supportedAspectRatios  String   @default("[\"1:1\",\"3:4\",\"16:9\"]")
+  usageStepsEn           String   @default("[]")
+  usageStepsHi           String   @default("[]")
+  tipsEn                 String   @default("[]")
+  tipsHi                 String   @default("[]")
+  attribution            String   @default("")
+  status                 String   @default("draft") // draft pending published archived rejected
+  featured               Boolean  @default(false)
+  badge                  String?
+  authorId               String?
+  author                 User?    @relation("PromptAuthor", fields: [authorId], references: [id])
+  publishedAt            DateTime?
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+  views                  Int      @default(0)
+  copies                 Int      @default(0)
+  saves                  Int      @default(0)
+
+  @@index([contentType, status])
+  @@index([categoryId])
+  @@index([status, featured])
+}
+
+model SiteSetting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String
+}

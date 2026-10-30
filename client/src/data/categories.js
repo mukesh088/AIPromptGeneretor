@@ -1,0 +1,18 @@
+export const categories = [
+  { id: 'cat_festive', slug: 'festive-portraits', name: 'Festive Portraits', contentTypes: ['image'], description: 'Indian festive looks, couples, and celebration portraits.' },
+  { id: 'cat_cinematic', slug: 'cinematic', name: 'Cinematic', contentTypes: ['image', 'video'], description: 'Film-inspired lighting, atmosphere, and framing.' },
+  { id: 'cat_street', slug: 'street-cafe', name: 'Street & Café', contentTypes: ['image'], description: 'Urban scenes, cafés, and lifestyle photography.' },
+  { id: 'cat_headshots', slug: 'headshots', name: 'Headshots', contentTypes: ['image'], description: 'Professional and creative portrait headshots.' },
+  { id: 'cat_product', slug: 'product', name: 'Product', contentTypes: ['image', 'video'], description: 'Product photography and reveal motion.' },
+  { id: 'cat_interiors', slug: 'interiors', name: 'Interiors', contentTypes: ['image'], description: 'Home and studio interior scenes.' },
+  { id: 'cat_thumbnails', slug: 'thumbnails', name: 'Thumbnails', contentTypes: ['image'], description: 'Social and YouTube thumbnail concepts.' },
+  { id: 'cat_illustration', slug: 'illustration', name: 'Illustration', contentTypes: ['image'], description: 'Editorial and stylized illustrations.' },
+  { id: 'cat_motion', slug: 'motion', name: 'Motion', contentTypes: ['video'], description: 'Portrait motion, camera moves, and short clips.' },
+  { id: 'cat_history', slug: 'history-story', name: 'History & Story', contentTypes: ['video'], description: 'Historical and narrative video prompts.' },
+  { id: 'cat_food', slug: 'food', name: 'Food', contentTypes: ['image', 'video'], description: 'Food photography and close-up motion.' },
+  { id: 'cat_travel', slug: 'travel', name: 'Travel', contentTypes: ['video', 'image'], description: 'Cinematic travel and place atmospheres.' },
+  { id: 'cat_writing', slug: 'writing', name: 'Writing', contentTypes: ['work'], description: 'Scripts, blogs, emails, and outlines.' },
+  { id: 'cat_study', slug: 'study', name: 'Study', contentTypes: ['work'], description: 'Study plans, exams, and interview prep.' },
+  { id: 'cat_coding', slug: 'coding', name: 'Coding', contentTypes: ['work'], description: 'Code explanations and developer help.' },
+  { id: 'cat_marketing', slug: 'marketing', name: 'Marketing', contentTypes: ['work'], description: 'Social plans, product copy, and presentations.' },
+]

@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Builds
+dist/
+**/dist/
+.vite/
+
+# Env / secrets
+.env
+.env.local
+**/.env
+**/.env.local
+
+# Logs / OS
+*.log
+.DS_Store
+Thumbs.db
+
+# Local database (recreate with npm run db:setup)
+server/prisma/dev.db
+server/prisma/dev.db-journal
+server/prisma/*.db
+
+# Optional local tooling
+.DS_Store
+*.swp
