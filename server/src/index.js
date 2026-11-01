@@ -5,10 +5,10 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const promptsRouter = require('./routes/prompts')
 const categoriesRouter = require('./routes/categories')
+const collectionsRouter = require('./routes/collections')
 const authRouter = require('./routes/auth')
 const uploadsRouter = require('./routes/uploads')
 const { prisma } = require('./prisma')
-const { mapPrompt } = require('./mappers')
 
 const app = express()
 const PORT = process.env.PORT || 4000
@@ -29,6 +29,7 @@ app.get('/api/health', (_req, res) => res.json({ ok: true, mode: 'sqlite' }))
 app.use('/api/auth', authRouter)
 app.use('/api/prompts', promptsRouter)
 app.use('/api/categories', categoriesRouter)
+app.use('/api/collections', collectionsRouter)
 app.use('/api/uploads', uploadsRouter)
 
 app.get('/api/search/suggestions', async (req, res, next) => {
@@ -64,14 +65,6 @@ app.get('/api/search/suggestions', async (req, res, next) => {
   } catch (e) {
     next(e)
   }
-})
-
-app.get('/api/collections', async (_req, res) => {
-  res.json([])
-})
-
-app.get('/api/collections/:slug', async (_req, res) => {
-  res.status(404).json({ error: 'Collections move to DB in a later update; use categories for now.' })
 })
 
 app.use((err, _req, res, _next) => {

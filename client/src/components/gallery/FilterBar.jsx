@@ -1,38 +1,71 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Filter, Columns2, Columns3 } from 'lucide-react'
-import { contentTypes, sortOptions, aspectRatios, supportedTools } from '@/lib/brand'
+import { homeTabs, sortOptions, aspectRatios, supportedTools, filterTags } from '@/lib/brand'
 import { Button } from '@/components/ui/Button'
 import { Sheet } from '@/components/ui/Sheet'
 import { useCategories } from '@/hooks/usePrompts'
 import { useUiStore } from '@/stores/uiStore'
 import { cn } from '@/lib/cn'
 
-export function TypeTabs({ active }) {
+export function TypeTabs({ active, activeTag }) {
   return (
-    <div className="flex gap-2 overflow-x-auto scrollbar-hide">
-      <Link
-        to="/"
+    <div className="inline-flex max-w-full gap-1 overflow-x-auto rounded-full bg-[var(--surface)] p-1 scrollbar-hide ring-1 ring-[var(--border)]">
+      {homeTabs.map((t) => {
+        const isActive =
+          (t.id === 'all' && !activeTag && (active === 'all' || !active || active === '')) ||
+          (t.id === 'templates' && active === 'templates') ||
+          (activeTag && t.id === activeTag) ||
+          (!activeTag && active === t.id && t.id !== 'all')
+        return (
+          <Link
+            key={t.id}
+            to={t.path}
+            className={cn(
+              'shrink-0 rounded-full px-4 py-2 text-sm font-semibold transition',
+              isActive
+                ? 'bg-[var(--accent)] text-white'
+                : 'text-[var(--muted)] hover:text-[var(--fg)]',
+            )}
+          >
+            {t.label}
+          </Link>
+        )
+      })}
+    </div>
+  )
+}
+
+/** Audience / theme tag chips for quick filtering */
+export function TagChips({ activeTag, onSelect }) {
+  return (
+    <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
+      <button
+        type="button"
+        onClick={() => onSelect?.('')}
         className={cn(
-          'shrink-0 rounded-full px-4 py-2 text-sm font-semibold',
-          !active || active === 'all'
-            ? 'bg-[var(--accent)] text-white'
-            : 'bg-[var(--surface-2)] text-[var(--muted)]',
+          'shrink-0 rounded-full border px-3 py-2 text-sm font-medium transition',
+          !activeTag
+            ? 'border-[var(--accent)] bg-[var(--accent)] text-white'
+            : 'border-[var(--border)] bg-[var(--surface)] text-[var(--muted)]',
         )}
       >
-        All
-      </Link>
-      {contentTypes.map((t) => (
-        <Link
+        All tags
+      </button>
+      {filterTags.map((t) => (
+        <button
           key={t.id}
-          to={t.path}
+          type="button"
+          onClick={() => onSelect?.(activeTag === t.id ? '' : t.id)}
           className={cn(
-            'shrink-0 rounded-full px-4 py-2 text-sm font-semibold',
-            active === t.id ? 'bg-[var(--accent)] text-white' : 'bg-[var(--surface-2)] text-[var(--muted)]',
+            'shrink-0 rounded-full border px-3 py-2 text-sm font-medium transition',
+            activeTag === t.id
+              ? 'border-[var(--accent)] bg-[var(--accent)]/15 text-[var(--fg)]'
+              : 'border-[var(--border)] bg-[var(--surface)] text-[var(--muted)]',
           )}
         >
           {t.label}
-        </Link>
+        </button>
       ))}
     </div>
   )
@@ -69,7 +102,7 @@ export function FilterControls({ filters, setFilters, total }) {
   const setGalleryColumns = useUiStore((s) => s.setGalleryColumns)
   const { data: categories = [] } = useCategories()
 
-  const activeCount = ['category', 'tool', 'aspect', 'requiresReferenceImage'].filter((k) => {
+  const activeCount = ['category', 'tag', 'tool', 'aspect', 'requiresReferenceImage'].filter((k) => {
     const v = filters[k]
     return v != null && v !== '' && v !== false
   }).length
@@ -78,6 +111,7 @@ export function FilterControls({ filters, setFilters, total }) {
     setFilters({
       ...filters,
       category: '',
+      tag: '',
       tool: '',
       aspect: '',
       requiresReferenceImage: undefined,
@@ -116,6 +150,20 @@ export function FilterControls({ filters, setFilters, total }) {
 
       <Sheet open={open} onOpenChange={setOpen} title="Filters">
         <div className="space-y-4">
+          <Field label="Tag">
+            <select
+              className="w-full min-h-11 rounded-[var(--radius-btn)] border border-[var(--border)] bg-[var(--surface)] px-3"
+              value={filters.tag || ''}
+              onChange={(e) => setFilters({ ...filters, tag: e.target.value })}
+            >
+              <option value="">Any</option>
+              {filterTags.map((t) => (
+                <option key={t.id} value={t.id}>
+                  {t.label}
+                </option>
+              ))}
+            </select>
+          </Field>
           <Field label="Category">
             <select
               className="w-full min-h-11 rounded-[var(--radius-btn)] border border-[var(--border)] bg-[var(--surface)] px-3"
@@ -197,6 +245,12 @@ function Field({ label, children }) {
 export function ActiveFilterChips({ filters, setFilters }) {
   const chips = []
   if (filters.q) chips.push({ key: 'q', label: `“${filters.q}”`, clear: () => setFilters({ ...filters, q: '' }) })
+  if (filters.tag)
+    chips.push({
+      key: 'tag',
+      label: `#${filters.tag}`,
+      clear: () => setFilters({ ...filters, tag: '' }),
+    })
   if (filters.category)
     chips.push({
       key: 'category',
@@ -235,6 +289,7 @@ export function ActiveFilterChips({ filters, setFilters }) {
             ...filters,
             q: '',
             category: '',
+            tag: '',
             tool: '',
             aspect: '',
             requiresReferenceImage: undefined,

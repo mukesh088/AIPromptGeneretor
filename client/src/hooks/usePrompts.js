@@ -27,10 +27,11 @@ export function useRelated(prompt) {
   })
 }
 
-export function useCategories() {
+export function useCategories(options = {}) {
+  const includeAll = !!options.includeAll
   return useQuery({
-    queryKey: ['categories'],
-    queryFn: () => promptRepository.listCategories(),
+    queryKey: ['categories', { includeAll }],
+    queryFn: () => promptRepository.listCategories({ includeAll }),
   })
 }
 
@@ -68,7 +69,13 @@ export function useSuggestions(q) {
 export function useAdminPrompts(filters) {
   return useQuery({
     queryKey: ['admin-prompts', filters],
-    queryFn: () => promptRepository.listPrompts({ ...filters, status: 'all', limit: 200 }),
+    queryFn: () =>
+      promptRepository.listPrompts({
+        sort: 'newest',
+        ...filters,
+        status: filters?.status ?? 'all',
+        limit: filters?.limit || 200,
+      }),
   })
 }
 

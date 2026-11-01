@@ -10,11 +10,11 @@ import { promptRepository } from '@/repositories'
 
 export function AboutPage() {
   return (
-    <Page title={`About ${brand.name}`}>
+    <Page title="About Us">
       <p>{brand.description}</p>
       <p className="mt-3">
-        Promptora is an original demo product inspired by the browsing rhythm of visual prompt galleries.
-        Content, branding, and media in this build are sample assets for development.
+        {brand.name} helps you discover and copy AI photo prompts for ChatGPT, Gemini, and other tools —
+        inspired by the browsing style of sites like promptpin.in, with original branding and content.
       </p>
     </Page>
   )

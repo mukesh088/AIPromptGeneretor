@@ -6,8 +6,8 @@ const {
   signSession,
   requireUser,
   publicUser,
-  sessions,
   getSessionUserId,
+  destroySession,
 } = require('../auth')
 
 const router = express.Router()
@@ -58,8 +58,7 @@ router.post('/login', async (req, res, next) => {
 })
 
 router.post('/logout', (req, res) => {
-  const token = req.cookies?.promptora_session
-  if (token) sessions.delete(token)
+  destroySession(req)
   res.clearCookie('promptora_session')
   res.json({ ok: true })
 })

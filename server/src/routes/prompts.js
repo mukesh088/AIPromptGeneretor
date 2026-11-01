@@ -11,7 +11,32 @@ function buildWhere(query) {
   if (status !== 'all') where.status = status
   if (query.contentType && query.contentType !== 'all') where.contentType = query.contentType
   if (query.category) {
-    where.OR = [{ categoryId: query.category }, { category: { slug: query.category } }]
+    where.AND = [
+      ...(where.AND || []),
+      {
+        OR: [
+          { categoryId: query.category },
+          { category: { slug: query.category } },
+          { tags: { contains: `"${query.category}"` } },
+          { tags: { contains: query.category } },
+        ],
+      },
+    ]
+  }
+  if (query.tag) {
+    const tag = String(query.tag).toLowerCase().trim()
+    where.AND = [
+      ...(where.AND || []),
+      {
+        OR: [
+          { tags: { contains: `"${tag}"` } },
+          { tags: { contains: tag } },
+          { category: { slug: tag } },
+          { title: { contains: tag } },
+          { slug: { contains: tag } },
+        ],
+      },
+    ]
   }
   if (query.featured === 'true' || query.featured === true) where.featured = true
   if (query.tool) where.supportedTools = { contains: `"${query.tool}"` }
@@ -36,16 +61,18 @@ function buildWhere(query) {
 }
 
 function sortOrder(sort) {
+  // Pinned always first (all pinned rows, then the rest)
+  const pinFirst = [{ pinned: 'desc' }, { updatedAt: 'desc' }]
   switch (sort) {
     case 'newest':
-      return [{ publishedAt: 'desc' }, { createdAt: 'desc' }]
+      return [...pinFirst, { publishedAt: 'desc' }, { createdAt: 'desc' }]
     case 'most_copied':
-      return [{ copies: 'desc' }]
+      return [...pinFirst, { copies: 'desc' }]
     case 'most_saved':
-      return [{ saves: 'desc' }]
+      return [...pinFirst, { saves: 'desc' }]
     case 'curated':
     default:
-      return [{ featured: 'desc' }, { publishedAt: 'desc' }, { createdAt: 'desc' }]
+      return [...pinFirst, { featured: 'desc' }, { publishedAt: 'desc' }, { createdAt: 'desc' }]
   }
 }
 
@@ -142,6 +169,8 @@ router.post('/', requireAdmin, async (req, res, next) => {
         previewKind: body.preview?.kind || (body.preview?.url || body.previewUrl ? 'image' : 'gradient'),
         previewFormat: body.preview?.format || (body.preview?.url || body.previewUrl ? 'photo' : 'illustrative'),
         previewLabel: body.preview?.label || null,
+        previewFit: body.preview?.fit || 'cover',
+        previewPosition: body.preview?.position || 'center',
         supportedTools: JSON.stringify(body.supportedTools || ['chatgpt']),
         requiresReferenceImage: !!body.requiresReferenceImage,
         supportedAspectRatios: JSON.stringify(body.supportedAspectRatios || ['1:1', '3:4', '16:9']),
@@ -152,6 +181,7 @@ router.post('/', requireAdmin, async (req, res, next) => {
         attribution: body.attribution || '',
         status: body.status || 'draft',
         featured: !!body.featured,
+        pinned: !!body.pinned,
         badge: body.badge || null,
         authorId: req.user.id,
         publishedAt: body.status === 'published' ? new Date() : null,
@@ -181,6 +211,7 @@ router.put('/:id', requireAdmin, async (req, res, next) => {
       'attribution',
       'status',
       'featured',
+      'pinned',
       'badge',
       'previewAlt',
       'previewWidth',
@@ -194,9 +225,12 @@ router.put('/:id', requireAdmin, async (req, res, next) => {
     for (const f of fields) {
       if (body[f] !== undefined) data[f] = body[f]
     }
+    if (body.pinned !== undefined) data.pinned = !!body.pinned
+    if (body.featured !== undefined) data.featured = !!body.featured
+    if (body.attribution !== undefined) data.attribution = body.attribution || ''
     if (body.slug) data.slug = body.slug
-    if (body.tags) data.tags = JSON.stringify(body.tags)
-    if (body.variables) data.variables = JSON.stringify(body.variables)
+    if (body.tags !== undefined) data.tags = JSON.stringify(body.tags || [])
+    if (body.variables !== undefined) data.variables = JSON.stringify(body.variables || [])
     if (body.supportedTools) data.supportedTools = JSON.stringify(body.supportedTools)
     if (body.supportedAspectRatios) data.supportedAspectRatios = JSON.stringify(body.supportedAspectRatios)
     if (body.usageSteps?.en) data.usageStepsEn = JSON.stringify(body.usageSteps.en)
@@ -212,6 +246,8 @@ router.put('/:id', requireAdmin, async (req, res, next) => {
       if (body.preview.kind !== undefined) data.previewKind = body.preview.kind
       if (body.preview.format !== undefined) data.previewFormat = body.preview.format
       if (body.preview.label !== undefined) data.previewLabel = body.preview.label
+      if (body.preview.fit !== undefined) data.previewFit = body.preview.fit || 'cover'
+      if (body.preview.position !== undefined) data.previewPosition = body.preview.position || 'center'
     }
     if (data.status === 'published' && !existing.publishedAt) data.publishedAt = new Date()
     const row = await prisma.prompt.update({ where: { id: existing.id }, data })

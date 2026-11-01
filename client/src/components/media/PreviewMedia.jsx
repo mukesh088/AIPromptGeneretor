@@ -9,6 +9,23 @@ function resolveUrl(url) {
   return `${base}${url}`
 }
 
+const FIT_CLASS = {
+  cover: 'object-cover',
+  contain: 'object-contain',
+  fill: 'object-fill',
+}
+
+const POSITION_CLASS = {
+  center: 'object-center',
+  top: 'object-top',
+  bottom: 'object-bottom',
+  left: 'object-left',
+  right: 'object-right',
+}
+
+/** Site-standard portrait frame (matches gallery cards). */
+export const PREVIEW_ASPECT = '3 / 4'
+
 export function PreviewMedia({
   preview,
   title,
@@ -16,16 +33,29 @@ export function PreviewMedia({
   showIllustrative = true,
   badge,
   typeLabel,
+  pinned = false,
+  /** Force the site 3:4 frame (recommended for admin + gallery). */
+  fixedAspect = true,
 }) {
   const [imgError, setImgError] = useState(false)
-  const ratio = preview?.width && preview?.height ? preview.width / preview.height : 3 / 4
+  const ratio =
+    !fixedAspect && preview?.width && preview?.height
+      ? preview.width / preview.height
+      : 3 / 4
   const imageUrl = resolveUrl(preview?.url)
   const showImage = imageUrl && !imgError && preview?.kind !== 'work'
   const showWork = preview?.kind === 'work' || (!showImage && preview?.label && preview?.kind !== 'gradient')
+  const fit = FIT_CLASS[preview?.fit] || FIT_CLASS.cover
+  const position = POSITION_CLASS[preview?.position] || POSITION_CLASS.center
+  const isContain = (preview?.fit || 'cover') === 'contain'
 
   return (
     <div
-      className={cn('relative overflow-hidden rounded-[var(--radius-card)] bg-[var(--surface-2)]', className)}
+      className={cn(
+        'relative overflow-hidden rounded-[var(--radius-card)] bg-[var(--surface-2)]',
+        isContain && 'bg-[var(--surface)]',
+        className,
+      )}
       style={{ aspectRatio: String(ratio) }}
     >
       {showImage ? (
@@ -36,7 +66,7 @@ export function PreviewMedia({
           height={preview?.height || undefined}
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
+          className={cn('absolute inset-0 h-full w-full', fit, position)}
           onError={() => setImgError(true)}
         />
       ) : showWork ? (
@@ -71,6 +101,7 @@ export function PreviewMedia({
       )}
 
       <div className="absolute left-2 top-2 flex flex-wrap gap-1">
+        {pinned && <Badge tone="pinned">Pinned</Badge>}
         {typeLabel && <Badge tone="type">{typeLabel}</Badge>}
         {badge === 'new' && <Badge tone="new">New</Badge>}
         {badge === 'featured' && <Badge tone="featured">Featured</Badge>}

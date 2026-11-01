@@ -51,8 +51,8 @@ export const apiRepository = {
     return Array.isArray(data) ? data.slice(0, limit) : []
   },
 
-  async listCategories() {
-    return request('/api/categories')
+  async listCategories({ includeAll = false } = {}) {
+    return request(`/api/categories${includeAll ? '?includeAll=true' : ''}`)
   },
 
   async getCategory(slug) {

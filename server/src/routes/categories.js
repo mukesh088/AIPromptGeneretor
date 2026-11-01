@@ -5,13 +5,22 @@ const { requireAdmin } = require('../auth')
 
 const router = express.Router()
 
-router.get('/', async (_req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
+    const includeAll = req.query.includeAll === 'true' || req.query.includeAll === '1'
     const rows = await prisma.category.findMany({ orderBy: { name: 'asc' } })
     const withCounts = await Promise.all(
       rows.map(async (c) => {
+        const statusFilter = includeAll ? {} : { status: 'published' }
         const count = await prisma.prompt.count({
-          where: { categoryId: c.id, status: 'published' },
+          where: {
+            ...statusFilter,
+            OR: [
+              { categoryId: c.id },
+              { tags: { contains: `"${c.slug}"` } },
+              { tags: { contains: c.slug } },
+            ],
+          },
         })
         return mapCategory(c, count)
       }),

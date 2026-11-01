@@ -67,7 +67,8 @@ export function PromptDetailPage() {
     const result = await copyText(finalPrompt)
     if (result.ok) {
       promptRepository.recordEvent('copy', prompt.id)
-      toast.success('Final prompt copied')
+      const name = String(values.name || '').trim()
+      toast.success(name ? `Copied with name “${name}”` : 'Final prompt copied')
     } else toast.error(result.error || 'Copy failed')
   }
 
@@ -113,15 +114,20 @@ export function PromptDetailPage() {
             title={prompt.title}
             badge={prompt.badge}
             typeLabel={prompt.contentType}
+            pinned={!!prompt.pinned}
             className="w-full"
           />
-          <p className="mt-2 text-xs text-[var(--muted)]">{prompt.attribution}</p>
+          {prompt.attribution &&
+            !/unsplash|replace in admin/i.test(prompt.attribution) && (
+              <p className="mt-2 text-xs text-[var(--muted)]">{prompt.attribution}</p>
+            )}
         </div>
       </div>
 
       <div className="space-y-5 px-3 pb-28 pt-4 md:pb-8 md:pt-0">
         <div>
           <div className="mb-2 flex flex-wrap gap-2">
+            {prompt.pinned && <Badge tone="pinned">Pinned</Badge>}
             <Badge tone="type">{prompt.contentType}</Badge>
             {prompt.badge && <Badge tone={prompt.badge}>{prompt.badge}</Badge>}
             {prompt.requiresReferenceImage && <Badge>Needs reference</Badge>}
@@ -130,9 +136,13 @@ export function PromptDetailPage() {
           <p className="mt-2 text-[var(--muted)]">{prompt.shortDescription}</p>
           <div className="mt-2 flex flex-wrap gap-2 text-xs text-[var(--muted)]">
             {prompt.tags.map((t) => (
-              <span key={t} className="rounded-full bg-[var(--surface-2)] px-2 py-1">
+              <Link
+                key={t}
+                to={`/?tag=${encodeURIComponent(t)}`}
+                className="rounded-full bg-[var(--surface-2)] px-2 py-1 hover:bg-[var(--accent)]/15 hover:text-[var(--fg)]"
+              >
                 #{t}
-              </span>
+              </Link>
             ))}
           </div>
         </div>
@@ -150,23 +160,40 @@ export function PromptDetailPage() {
         </section>
 
         <section>
-          <h2 className="mb-2 font-display text-lg font-semibold">Final prompt</h2>
+          <div className="mb-2 flex items-center justify-between gap-2">
+            <h2 className="font-display text-lg font-semibold">Final prompt</h2>
+            <Button size="sm" onClick={onCopy}>
+              <Copy className="h-3.5 w-3.5" /> Copy it
+            </Button>
+          </div>
+          {String(values.name || '').trim() && (
+            <p className="mb-2 text-xs text-[var(--muted)]">
+              Live preview — <span className="font-semibold text-[var(--fg)]">Priya</span> (and{' '}
+              <code className="text-[var(--fg)]">{'{{name}}'}</code>) replaced with{' '}
+              <span className="font-semibold text-[var(--accent)]">{String(values.name).trim()}</span>
+            </p>
+          )}
           <div className="rounded-[var(--radius-card)] border border-[var(--border)] bg-[var(--surface)] p-3">
             <pre
               className={cn(
-                'whitespace-pre-wrap font-sans text-sm leading-relaxed',
+                'whitespace-pre-wrap font-sans text-sm leading-relaxed transition-all',
                 !expanded && 'line-clamp-6',
               )}
             >
               {finalPrompt}
             </pre>
-            <button
-              type="button"
-              className="mt-2 text-sm font-semibold text-[var(--accent)]"
-              onClick={() => setExpanded((e) => !e)}
-            >
-              {expanded ? 'Collapse' : 'Expand'}
-            </button>
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                className="text-sm font-semibold text-[var(--accent)]"
+                onClick={() => setExpanded((e) => !e)}
+              >
+                {expanded ? 'Collapse' : 'Expand'}
+              </button>
+              <Button size="sm" variant="secondary" className="ml-auto" onClick={onCopy}>
+                <Copy className="h-3.5 w-3.5" /> Copy prompt
+              </Button>
+            </div>
           </div>
           {prompt.negativePrompt && (
             <div className="mt-3">
@@ -240,7 +267,7 @@ export function PromptDetailPage() {
         {related.length > 0 && (
           <section>
             <h2 className="mb-3 font-display text-lg font-semibold">Related</h2>
-            <div className="masonry !columns-2">
+            <div className="masonry masonry-cols-2">
               {related.slice(0, 4).map((p) => (
                 <PromptCard key={p.id} prompt={p} />
               ))}
@@ -269,8 +296,8 @@ export function PromptDetailPage() {
           <Button variant="secondary" size="icon" aria-label="Share" onClick={onShare}>
             <Share2 className="h-5 w-5" />
           </Button>
-          <Button variant="secondary" className="flex-1 md:flex-none" onClick={onCopy}>
-            <Copy className="h-4 w-4" /> Copy prompt
+          <Button className="flex-1 md:flex-none" onClick={onCopy}>
+            <Copy className="h-4 w-4" /> Copy it
           </Button>
           <Button
             variant="gradient"

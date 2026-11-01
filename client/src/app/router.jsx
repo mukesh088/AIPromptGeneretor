@@ -45,6 +45,12 @@ const ProfilePage = lazy(() =>
 const AdminPage = lazy(() =>
   import('@/features/admin/AdminPage').then((m) => ({ default: m.AdminPage })),
 )
+const TemplatesPage = lazy(() =>
+  import('@/features/templates/TemplatesPage').then((m) => ({ default: m.TemplatesPage })),
+)
+const AppPage = lazy(() =>
+  import('@/features/app/AppPage').then((m) => ({ default: m.AppPage })),
+)
 const AboutPage = lazy(() =>
   import('@/features/static/StaticPages').then((m) => ({ default: m.AboutPage })),
 )
@@ -74,28 +80,32 @@ export const router = createBrowserRouter([
     element: <AppShell />,
     children: [
       { index: true, element: <ExplorePage /> },
-      { path: 'images', element: <ExplorePage contentType="image" /> },
-      { path: 'videos', element: <ExplorePage contentType="video" /> },
-      { path: 'work', element: <ExplorePage contentType="work" /> },
-      { path: 'trending', element: <L><TrendingPage /></L> },
+      { path: 'templates', element: <L><TemplatesPage /></L> },
       { path: 'categories', element: <L><CategoriesPage /></L> },
+      { path: 'categories/:slug', element: <L><CategoryFeedPage /></L> },
       { path: 'category/:slug', element: <L><CategoryFeedPage /></L> },
       { path: 'collections', element: <L><CollectionsPage /></L> },
       { path: 'collection/:slug', element: <L><CollectionDetailPage /></L> },
+      { path: 'app', element: <L><AppPage /></L> },
       { path: 'prompt/:slug', element: <L><PromptDetailPage /></L> },
       { path: 'search', element: <L><SearchPage /></L> },
       { path: 'create', element: <L><StudioPage /></L> },
-      { path: 'saved', element: <L><SavedPage /></L> },
-      { path: 'history', element: <L><HistoryPage /></L> },
       { path: 'profile', element: <L><ProfilePage /></L> },
       { path: 'login', element: <L><LoginPage /></L> },
       { path: 'register', element: <L><RegisterPage /></L> },
-      { path: 'submit', element: <L><SubmitPage /></L> },
       { path: 'admin', element: <L><AdminPage /></L> },
       { path: 'about', element: <L><AboutPage /></L> },
       { path: 'contact', element: <L><ContactPage /></L> },
       { path: 'privacy', element: <L><PrivacyPage /></L> },
       { path: 'terms', element: <L><TermsPage /></L> },
+      /* kept for old links */
+      { path: 'images', element: <ExplorePage contentType="image" /> },
+      { path: 'videos', element: <ExplorePage contentType="video" /> },
+      { path: 'work', element: <ExplorePage contentType="work" /> },
+      { path: 'trending', element: <L><TrendingPage /></L> },
+      { path: 'saved', element: <L><SavedPage /></L> },
+      { path: 'history', element: <L><HistoryPage /></L> },
+      { path: 'submit', element: <L><SubmitPage /></L> },
       { path: '*', element: <L><NotFoundPage /></L> },
     ],
   },

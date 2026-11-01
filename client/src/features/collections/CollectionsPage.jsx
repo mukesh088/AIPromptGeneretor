@@ -4,27 +4,35 @@ import { PromptCard } from '@/components/gallery/PromptCard'
 import { cn } from '@/lib/cn'
 
 export function CollectionsPage() {
-  const { data: collections = [] } = useCollections()
+  const { data: collections = [], isLoading } = useCollections()
   return (
     <div className="px-3 py-4 sm:px-4 md:px-6">
       <h1 className="font-display text-2xl font-bold">Collections</h1>
       <p className="mt-1 text-sm text-[var(--muted)]">Editorial sets — curated inspiration, not measured trends.</p>
-      <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {collections.map((c) => (
-          <li key={c.id}>
-            <Link
-              to={`/collection/${c.slug}`}
-              className={cn(
-                'flex h-40 flex-col justify-end rounded-[var(--radius-card)] border border-[var(--border)] p-4',
-                c.coverGradient || 'preview-gradient-1',
-              )}
-            >
-              <p className="font-display text-lg font-semibold text-white drop-shadow">{c.title}</p>
-              <p className="text-sm text-white/80">{c.promptIds.length} prompts</p>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {isLoading ? (
+        <p className="mt-8 text-sm text-[var(--muted)]">Loading collections…</p>
+      ) : collections.length === 0 ? (
+        <p className="mt-8 text-sm text-[var(--muted)]">No collections yet. Run server seed to load them.</p>
+      ) : (
+        <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {collections.map((c) => (
+            <li key={c.id}>
+              <Link
+                to={`/collection/${c.slug}`}
+                className={cn(
+                  'flex h-40 flex-col justify-end rounded-[var(--radius-card)] border border-[var(--border)] p-4',
+                  c.coverGradient || 'preview-gradient-1',
+                )}
+              >
+                <p className="font-display text-lg font-semibold text-white drop-shadow">{c.title}</p>
+                <p className="text-sm text-white/80">
+                  {c.promptCount ?? c.promptIds?.length ?? 0} prompts
+                </p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   )
 }
@@ -43,7 +51,7 @@ export function CollectionDetailPage() {
         <p className="mt-2 text-white/85">{collection.description}</p>
       </div>
       <div className="masonry">
-        {collection.prompts.map((p) => (
+        {(collection.prompts || []).map((p) => (
           <PromptCard key={p.id} prompt={p} />
         ))}
       </div>

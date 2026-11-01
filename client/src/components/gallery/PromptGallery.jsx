@@ -2,6 +2,7 @@ import { PromptCard, PromptCardSkeleton } from './PromptCard'
 import { Button } from '@/components/ui/Button'
 import { useUiStore } from '@/stores/uiStore'
 import { cn } from '@/lib/cn'
+import { sortPinnedFirst } from '@/lib/sortPinned'
 
 export function PromptGallery({ query, emptyAction }) {
   const {
@@ -14,12 +15,12 @@ export function PromptGallery({ query, emptyAction }) {
   } = query
   const galleryColumns = useUiStore((s) => s.galleryColumns)
 
-  const items = data?.pages.flatMap((p) => p.items) ?? []
+  const items = sortPinnedFirst(data?.pages.flatMap((p) => p.items) ?? [])
   const total = data?.pages[0]?.total ?? 0
 
   if (isLoading) {
     return (
-      <div className={cn('masonry', galleryColumns === '1' && '!columns-1')}>
+      <div className={cn('masonry', galleryColumns === '1' && 'masonry-cols-1')}>
         {Array.from({ length: 8 }).map((_, i) => (
           <PromptCardSkeleton key={i} />
         ))}
@@ -43,7 +44,7 @@ export function PromptGallery({ query, emptyAction }) {
 
   return (
     <div>
-      <div className={cn('masonry', galleryColumns === '1' && '!columns-1')}>
+      <div className={cn('masonry', galleryColumns === '1' && 'masonry-cols-1')}>
         {items.map((prompt) => (
           <PromptCard key={prompt.id} prompt={prompt} />
         ))}

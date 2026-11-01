@@ -40,8 +40,14 @@ export const useAuthStore = create(
         if (!isApiMode) return
         try {
           const user = await promptRepository.me()
+          if (!user) {
+            localStorage.removeItem('promptora_token')
+            set({ user: null, isDemo: false })
+            return
+          }
           set({ user, isDemo: false })
         } catch {
+          localStorage.removeItem('promptora_token')
           set({ user: null })
         }
       },

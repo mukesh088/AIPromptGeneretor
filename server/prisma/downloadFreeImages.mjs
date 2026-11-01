@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Downloads free Unsplash photos (Unsplash License) into server/uploads.
  * Replace any file later via Admin → Upload.
  */
@@ -16,96 +16,73 @@ const prisma = new PrismaClient()
 
 /** Unsplash photo IDs — https://unsplash.com/license */
 const BY_SLUG = {
-  'diwali-golden-portrait': '1545558014-8694371b9c01',
-  'anniversary-couple-portrait': '1516589178581-6cd7833ae3b2',
-  'karwa-chauth-moonlit-look': '1507400494047-5a4d2f2f9b6d',
-  'holi-color-splash-portrait': '1492684223066-81342ee5ff30',
-  'navratri-garba-motion-freeze': '1504609813442-a8924e0418c9',
-  'eid-family-soft-portrait': '1511895426328-dc8714191300',
-
-  'rain-noir-alley-scene': '1519681393784-d120267933ba',
-  'desert-epic-wide-hero': '1509316975850-ff9c8deb175b',
-  'neo-noir-neon-portrait': '1550684848-fac1c5b4e853',
-  'seventies-film-grain-still': '1492691527719-9d1e07e534b4',
-  'retro-bollywood-poster-portrait': '1534528741775-53994a69daeb',
-  'library-dolly-push-through': '1521587760476-6c12a41cff19',
-
-  'mumbai-chai-tapri-morning': '1544787219-7f47ccb76574',
-  'old-delhi-cafe-window-seat': '1495474472287-4ae41aa7e774',
-  'retro-scooter-lane-portrait': '1558981403-c5f9899a28bc',
-
-  'linkedin-executive-headshot': '1560250097-0b93528c311a',
-  'creative-founder-headshot': '1573496359142-b8d87734a5a2',
-  'actor-casting-headshot': '1507003211169-0a1dd7228f2d',
-  'healthcare-professional-headshot': '1559839734-2b71ea197ec2',
-
-  'skincare-bottle-hero': '1556228720-195a672e8a03',
-  'floating-sneaker-product': '1542291026-7eec264c27ff',
-  'jewelry-macro-sparkle': '1515562141207-7a88fb7ce338',
-  'tech-gadget-desk-flatlay': '1498050108023-c5249f4df085',
-  'product-reveal-unbox-spin': '1523275335684-37898b6baf30',
-  'perfume-mist-macro-video': '1541643600914-78b084683601',
-
-  'japandi-living-room': '1586023492125-27b2c045efd7',
-  'cozy-reading-nook': '1481627834876-b4933e8771ab',
-  'creator-studio-workspace': '1497366216548-37526070297c',
-
-  'youtube-shock-face-thumbnail': '1492562085163-9c22f5d2c0e5',
-  'podcast-episode-cover': '1478737270239-2fad36e3e2a0',
-  'gaming-stream-thumbnail': '1542751371-adc38448a05e',
-
-  'botanical-editorial-illustration': '1490750967868-88aa4486c946',
-  'children-book-character': '1503454537195-1c733a64123b',
-  'isometric-city-block': '1477959858617-67f85cf4f1df',
-  'watercolor-travel-postcard': '1506905925346-21bda4d32df4',
-
-  'dosa-steam-street-food': '1585937421612-70a008356fbe',
-  'chai-latte-art-overhead': '1498804103071-bff87f82bbe2',
-  'tandoor-sizzle-close-up': '1555939594-58d7cb561ad1',
-  'pastry-glaze-pour-macro': '1578985545062-69928b1d9587',
-
-  'himalayan-sunrise-ridge': '1464822759023-fed622ff2c3b',
-  'kerala-backwaters-boat': '1507525428034-b723cf961d3e',
-  'train-window-travel-drift': '1474487548415-ba34409295ea',
-  'desert-caravan-aerial-drift': '1473580043148-24a3c0f0a9a8',
-
-  'portrait-breeze-hair-motion': '1529626455594-4ff0802cfb7e',
-  'fabric-swirl-slow-motion': '1483983386299-9a3b0f9d0a0f',
-  'mughal-miniature-story-morph': '1564507592333-c60657eea523',
-  'independence-era-photo-montage': '1461360224868-59ff3dceaa54',
-  'explainer-whiteboard-camera-move': '1434030216411-0b793f4b4173',
-
-  'youtube-script-outline': '1611162616475-46b635cb4958',
-  'weekly-study-timetable': '1434030216411-0b793f4b4173',
-  'banking-exam-revision-sprint': '1454165804606-c3d57bc86b40',
-  'interview-star-answer-bank': '1521737711867-e3b97375f902',
-  'blog-post-outline-seo': '1486312338219-ce68d2c6f44d',
-  'social-content-plan-30-days': '1611224923853-80b023f02d71',
-  'professional-email-drafter': '1596526131084-e5a8b6e2b0e5',
-  'code-explanation-walkthrough': '1461749280684-dccba630e2f6',
-  'presentation-outline-slides': '1552664730-d307ca884978',
-  'product-description-ecommerce': '1556742049-0cfed4f6a45d',
-  'spreadsheet-formula-helper': '1551288049-bebda4e38f71',
-  'meeting-summary-action-items': '1556761175-b413da4baf72',
+  'diwali-saree-night-girls': '1604608672950-c4f63d8c6d9a',
+  'diwali-lehenga-balcony-girls': '1610030469983-98e550d6193c',
+  'diwali-mirror-selfie-girls': '1515886657613-9f3515b0c78f',
+  'diwali-couple-rooftop': '1522673607200-164d1b6ce486',
+  'diwali-rangoli-pose-girls': '1604608672950-c4f63d8c6d9a',
+  'diwali-kurta-boys': '1506794778202-cad84cf45f1d',
+  'diwali-terrace-boys': '1500648767791-00dcc994a43e',
+  'diwali-street-lights-boys': '1492562080023-ab3db95bfbce',
+  'diwali-minimal-boys': '1539571696357-5a69c17a67c6',
+  'diwali-family-festive': '1511895426328-dc8714191300',
+  'casino-royale-couple': '1516589178581-6cd7833ae3b2',
+  'sunset-couple-portrait': '1518199266791-5375a83190b7',
+  'monsoon-cafe-couple': '1529636798458-92182e662485',
+  'aesthetic-cafe-girls': '1529626455594-4ff0802cfb7e',
+  'words-of-the-heart-girls': '1494790108377-be9c29b29330',
+  'bold-horizon-girls': '1487412720507-e7ab37603c6f',
+  'honey-fire-girls': '1534528741775-53994a69daeb',
+  'urban-street-boys': '1507003211169-0a1dd7228f2d',
+  'car-night-boys': '1492144534655-ae79c964c9d7',
+  'car-sunset-boys': '1503376780353-7e6692767b70',
+  'rakhi-sibling-portrait': '1604608672950-c4f63d8c6d9a',
+  'rakhi-festive-girls': '1594744803329-e58b31de8bf5',
+  '1980s-retro-girls': '1469334031218-e382a71b716b',
+  '1980s-retro-boys': '1488161628813-04466f872be2',
+  'ganesh-chaturthi-devotional': '1567593810070-7a3d471af022',
+  'ganesh-festive-girls': '1604608672950-c4f63d8c6d9a',
+  'birthday-cake-girls': '1464349095431-e9a21285b5f3',
+  'birthday-party-boys': '1530103862676-de8c9debad1d',
+  'birthday-couple': '1464366400600-7168b8af9bc3',
+  'scarlet-reflections-girls': '1524504388940-b1c1722653e1',
+  'midnight-minimal-girls': '1517841905240-472988babdf9',
+  'car-drive-mood-boys': '1549317661-bd32c8ce0db2',
+  'navratri-garba-girls': '1604608672950-c4f63d8c6d9a',
+  'navratri-festive-boys': '1506794778202-cad84cf45f1d',
+  'viral-template-collage': '1558618666-fcd25c85f82e',
+  'vn-style-cinematic-cut': '1485846234645-a62644f84728',
+  'capcut-trend-portrait': '1529626455594-4ff0802cfb7e',
+  'anime-cartoon-transform': '1578632767115-351597cf2477',
+  'travel-mountain-portrait': '1464822759023-fed622ff2c3b',
+  'horror-cinematic-boys': '1509248961158-e54f6934749c',
+  'wedding-bridal-portrait': '1519741497674-611481863552',
+  'wedding-couple-portrait': '1511285560929-80b456fea0bc',
+  'selfie-golden-hour-girls': '1438761681033-6461ffad8d80',
+  'collage-memory-wall': '1452587925148-ce544e77e70d',
+  'portrait-studio-clean': '1531746020798-e6953c6e8e04',
+  'aesthetic-pastel-girls': '1524504388940-b1c1722653e1',
+  'festive-days-general': '1511795409834-ef04bbd61622',
+  'horror-aesthetic-girls': '1515886657613-9f3515b0c78f',
 }
 
 const BY_CATEGORY = {
-  'festive-portraits': '1545558014-8694371b9c01',
+  boys: '1507003211169-0a1dd7228f2d',
+  girls: '1529626455594-4ff0802cfb7e',
+  couple: '1516589178581-6cd7833ae3b2',
+  templates: '1558618666-fcd25c85f82e',
+  portrait: '1531746020798-e6953c6e8e04',
   cinematic: '1519681393784-d120267933ba',
-  'street-cafe': '1495474472287-4ae41aa7e774',
-  headshots: '1507003211169-0a1dd7228f2d',
-  product: '1523275335684-37898b6baf30',
-  interiors: '1586023492125-27b2c045efd7',
-  thumbnails: '1492562085163-9c22f5d2c0e5',
-  illustration: '1490750967868-88aa4486c946',
-  food: '1555939594-58d7cb561ad1',
+  aesthetic: '1515886657613-9f3515b0c78f',
+  collage: '1452587925148-ce544e77e70d',
+  cartoon: '1578632767115-351597cf2477',
   travel: '1464822759023-fed622ff2c3b',
-  motion: '1529626455594-4ff0802cfb7e',
-  'history-story': '1564507592333-c60657eea523',
-  writing: '1486312338219-ce68d2c6f44d',
-  study: '1434030216411-0b793f4b4173',
-  coding: '1461749280684-dccba630e2f6',
-  marketing: '1552664730-d307ca884978',
+  festival: '1604608672950-c4f63d8c6d9a',
+  birthday: '1464349095431-e9a21285b5f3',
+  selfie: '1438761681033-6461ffad8d80',
+  'festive-days': '1511795409834-ef04bbd61622',
+  horror: '1509248961158-e54f6934749c',
+  wedding: '1519741497674-611481863552',
 }
 
 const SAFE_FALLBACKS = [
@@ -182,7 +159,6 @@ async function main() {
       ...SAFE_FALLBACKS,
     ].filter(Boolean)
 
-    // cleanup old svg
     const svg = path.join(uploadDir, `${p.slug}.svg`)
     if (fs.existsSync(svg)) fs.unlinkSync(svg)
 
@@ -247,7 +223,9 @@ async function main() {
   ].join('\n')
 
   fs.writeFileSync(path.join(uploadDir, 'ATTRIBUTION.md'), md)
-  fs.writeFileSync(path.join(__dirname, '../../client/public/assets/ATTRIBUTION.md'), md)
+  const clientAttr = path.join(__dirname, '../../client/public/assets/ATTRIBUTION.md')
+  fs.mkdirSync(path.dirname(clientAttr), { recursive: true })
+  fs.writeFileSync(clientAttr, md)
 
   console.log(`\nDone. OK=${ok} FAIL=${fail}`)
   console.log(`Files in ${uploadDir}`)

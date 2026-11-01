@@ -1,3 +1,6 @@
+/** Sample names commonly used in prompt templates — swapped when user enters a real name. */
+export const SAMPLE_NAMES = ['Priya', 'Aisha', 'Ananya', 'Riya', 'Neha', 'Rahul', 'Aarav', 'Kabir']
+
 export async function copyText(text) {
   try {
     if (navigator.clipboard?.writeText) {
@@ -36,15 +39,42 @@ export async function shareOrCopyLink({ title, text, url }) {
   return { ...result, method: 'copy' }
 }
 
-export function resolvePrompt(template, values = {}) {
-  return template.replace(/\{\{(\w+)\}\}/g, (_, key) => {
+function matchNameCase(sampleMatch, replacement) {
+  const name = String(replacement).trim()
+  if (!name) return sampleMatch
+  if (sampleMatch === sampleMatch.toUpperCase()) return name.toUpperCase()
+  if (sampleMatch[0] === sampleMatch[0].toUpperCase()) {
+    return name.charAt(0).toUpperCase() + name.slice(1)
+  }
+  return name.toLowerCase()
+}
+
+/**
+ * Build the final prompt:
+ * - replaces {{name}}, {{city}}, etc.
+ * - if a name is entered, also replaces sample names like "Priya" in the text
+ */
+export function resolvePrompt(template = '', values = {}) {
+  let out = String(template || '').replace(/\{\{(\w+)\}\}/g, (_, key) => {
     const v = values[key]
     return v != null && String(v).trim() !== '' ? String(v).trim() : `{{${key}}}`
   })
+
+  const enteredName = values.name != null ? String(values.name).trim() : ''
+  if (enteredName) {
+    const pattern = new RegExp(`\\b(${SAMPLE_NAMES.map(escapeRegExp).join('|')})\\b`, 'gi')
+    out = out.replace(pattern, (match) => matchNameCase(match, enteredName))
+  }
+
+  return out
+}
+
+function escapeRegExp(s) {
+  return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 }
 
 export function extractVariables(template = '') {
-  const matches = [...template.matchAll(/\{\{(\w+)\}\}/g)]
+  const matches = [...String(template).matchAll(/\{\{(\w+)\}\}/g)]
   return [...new Set(matches.map((m) => m[1]))]
 }
 

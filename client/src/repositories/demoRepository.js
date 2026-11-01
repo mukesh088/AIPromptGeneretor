@@ -2,7 +2,7 @@ import { prompts as seedPrompts } from '@/data/prompts'
 import { categories } from '@/data/categories'
 import { collections as seedCollections } from '@/data/collections'
 
-const STORAGE_KEY = 'promptora-demo-prompts-v1'
+const STORAGE_KEY = 'promptora-demo-prompts-v2'
 
 function loadPrompts() {
   try {
@@ -58,18 +58,22 @@ function fuzzyMatch(haystack, needle) {
   })
 }
 
-function sortPrompts(list, sort) {
+function sortWithinGroup(list, sort) {
   const copy = [...list]
   switch (sort) {
     case 'newest':
       return copy.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
     case 'most_copied':
       return copy.sort(
-        (a, b) => (b.demoMetrics?.copies || b.metrics.copies) - (a.demoMetrics?.copies || a.metrics.copies),
+        (a, b) =>
+          (b.demoMetrics?.copies || b.metrics?.copies || 0) -
+          (a.demoMetrics?.copies || a.metrics?.copies || 0),
       )
     case 'most_saved':
       return copy.sort(
-        (a, b) => (b.demoMetrics?.saves || b.metrics.saves) - (a.demoMetrics?.saves || a.metrics.saves),
+        (a, b) =>
+          (b.demoMetrics?.saves || b.metrics?.saves || 0) -
+          (a.demoMetrics?.saves || a.metrics?.saves || 0),
       )
     case 'curated':
     default:
@@ -90,10 +94,23 @@ function sortPrompts(list, sort) {
   }
 }
 
+function sortPrompts(list, sort) {
+  const pinned = sortWithinGroup(
+    list.filter((p) => p.pinned),
+    sort,
+  )
+  const rest = sortWithinGroup(
+    list.filter((p) => !p.pinned),
+    sort,
+  )
+  return [...pinned, ...rest]
+}
+
 function filterPrompts(params = {}) {
   const {
     contentType,
     category,
+    tag,
     tool,
     aspect,
     q,
@@ -107,8 +124,22 @@ function filterPrompts(params = {}) {
     if (contentType && contentType !== 'all' && p.contentType !== contentType) return false
     if (category) {
       const cat = categories.find((c) => c.slug === category || c.id === category)
-      if (cat && p.categoryId !== cat.id) return false
-      if (!cat && p.categoryId !== category) return false
+      const catId = cat?.id || category
+      const inPrimary = p.categoryId === catId
+      const inExtra = Array.isArray(p.categoryIds) && p.categoryIds.includes(catId)
+      const inTags = Array.isArray(p.tags) && (p.tags.includes(category) || p.tags.includes(cat?.slug))
+      if (!inPrimary && !inExtra && !inTags) return false
+    }
+    if (tag) {
+      const t = String(tag).toLowerCase()
+      const cat = categories.find((c) => c.id === p.categoryId)
+      const hit =
+        (p.tags || []).some((x) => String(x).toLowerCase() === t || String(x).toLowerCase().includes(t)) ||
+        cat?.slug === t ||
+        (p.categoryIds || []).some((id) => id === `cat_${t}` || id.replace(/^cat_/, '').replace(/_/g, '-') === t) ||
+        normalize(p.title).includes(t) ||
+        normalize(p.slug).includes(t)
+      if (!hit) return false
     }
     if (tool && !p.supportedTools.includes(tool)) return false
     if (aspect && !p.supportedAspectRatios.includes(aspect)) return false
@@ -163,11 +194,17 @@ export const demoRepository = {
       .slice(0, limit)
   },
 
-  async listCategories() {
+  async listCategories({ includeAll = false } = {}) {
     await delay(40)
     return categories.map((c) => ({
       ...c,
-      count: prompts.filter((p) => p.categoryId === c.id && p.status === 'published').length,
+      count: prompts.filter((p) => {
+        if (!includeAll && p.status !== 'published') return false
+        if (p.categoryId === c.id) return true
+        if (Array.isArray(p.categoryIds) && p.categoryIds.includes(c.id)) return true
+        if (Array.isArray(p.tags) && (p.tags.includes(c.slug) || p.tags.includes(c.id))) return true
+        return false
+      }).length,
     }))
   },
 
@@ -220,6 +257,7 @@ export const demoRepository = {
       demoMetrics: null,
       badge: null,
       featured: false,
+      pinned: false,
       status: 'draft',
       language: 'en',
       tags: [],

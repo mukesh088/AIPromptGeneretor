@@ -37,6 +37,7 @@ export function VariableForm({ variables = [], values, onChange, onReset }) {
             <Input
               id={`var-${v.key}`}
               value={values[v.key] ?? v.default ?? ''}
+              placeholder={v.placeholder || v.help || v.label || ''}
               onChange={(e) => onChange({ ...values, [v.key]: e.target.value })}
             />
           )}

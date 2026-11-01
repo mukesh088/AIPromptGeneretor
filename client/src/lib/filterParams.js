@@ -8,6 +8,7 @@ export function useGalleryFilters(defaults = {}) {
     () => ({
       contentType: params.get('type') || defaults.contentType || '',
       category: params.get('category') || defaults.category || '',
+      tag: params.get('tag') || defaults.tag || '',
       tool: params.get('tool') || '',
       aspect: params.get('aspect') || '',
       sort: params.get('sort') || 'curated',
@@ -15,7 +16,7 @@ export function useGalleryFilters(defaults = {}) {
       requiresReferenceImage:
         params.get('ref') === '1' ? true : params.get('ref') === '0' ? false : undefined,
     }),
-    [params, defaults.contentType, defaults.category],
+    [params, defaults.contentType, defaults.category, defaults.tag],
   )
 
   const setFilters = useCallback(
@@ -24,6 +25,7 @@ export function useGalleryFilters(defaults = {}) {
       const merged = { ...filters, ...next }
       if (merged.contentType && merged.contentType !== 'all') n.set('type', merged.contentType)
       if (merged.category) n.set('category', merged.category)
+      if (merged.tag) n.set('tag', merged.tag)
       if (merged.tool) n.set('tool', merged.tool)
       if (merged.aspect) n.set('aspect', merged.aspect)
       if (merged.sort && merged.sort !== 'curated') n.set('sort', merged.sort)

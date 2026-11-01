@@ -73,8 +73,8 @@ export function StudioPage() {
       toast.error('Please choose an image file')
       return
     }
-    if (file.size > 8 * 1024 * 1024) {
-      toast.error('Max 8MB in demo uploads')
+    if (file.size > 20 * 1024 * 1024) {
+      toast.error('Max 20MB uploads')
       return
     }
     const url = URL.createObjectURL(file)

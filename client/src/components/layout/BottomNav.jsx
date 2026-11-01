@@ -1,12 +1,12 @@
 import { NavLink } from 'react-router-dom'
-import { Bookmark, Compass, LayoutGrid, Plus, User } from 'lucide-react'
+import { FolderKanban, Home, LayoutGrid, Layers, User } from 'lucide-react'
 import { cn } from '@/lib/cn'
 
 const items = [
-  { to: '/', label: 'Explore', icon: Compass, end: true },
+  { to: '/', label: 'Home', icon: Home, end: true },
+  { to: '/templates', label: 'Templates', icon: Layers },
   { to: '/categories', label: 'Categories', icon: LayoutGrid },
-  { to: '/create', label: 'Create', icon: Plus, emphasize: true },
-  { to: '/saved', label: 'Saved', icon: Bookmark },
+  { to: '/collections', label: 'Collections', icon: FolderKanban },
   { to: '/profile', label: 'Profile', icon: User },
 ]
 
@@ -37,11 +37,10 @@ export function BottomNav() {
                     <span
                       className={cn(
                         'inline-flex h-9 w-9 items-center justify-center rounded-full',
-                        item.emphasize && 'gradient-cta text-white shadow-md',
-                        !item.emphasize && isActive && 'bg-[var(--surface-2)]',
+                        isActive && 'bg-[var(--surface-2)]',
                       )}
                     >
-                      <Icon className="h-5 w-5" strokeWidth={item.emphasize ? 2.5 : 2} />
+                      <Icon className="h-5 w-5" />
                     </span>
                     {item.label}
                   </>

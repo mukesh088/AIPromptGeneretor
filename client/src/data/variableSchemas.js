@@ -1,6 +1,33 @@
 export const variableCatalog = {
+  name: {
+    key: 'name',
+    label: 'Name',
+    type: 'text',
+    required: true,
+    default: '',
+    help: 'Enter a name',
+    placeholder: 'e.g. Priya',
+  },
+  age: {
+    key: 'age',
+    label: 'Age',
+    type: 'text',
+    required: false,
+    default: '',
+    help: 'Optional age',
+    placeholder: 'e.g. 24',
+  },
+  city: {
+    key: 'city',
+    label: 'City',
+    type: 'text',
+    required: false,
+    default: '',
+    help: 'City or place name',
+    placeholder: 'e.g. Mumbai',
+  },
   subject: { key: 'subject', label: 'Subject', type: 'text', required: true, default: 'a young woman', help: 'Who or what is the main focus?' },
-  outfit: { key: 'outfit', label: 'Outfit', type: 'text', required: true, default: 'embroidered silk lehenga', help: 'Clothing and accessories.' },
+  outfit: { key: 'outfit', label: 'Outfit', type: 'text', required: true, default: 'embroidered silk lehenga', help: 'Clothing and accessories.', placeholder: 'e.g. red saree' },
   location: { key: 'location', label: 'Location', type: 'text', required: true, default: 'heritage courtyard at dusk', help: 'Setting or backdrop.' },
   lighting: { key: 'lighting', label: 'Lighting', type: 'select', required: true, default: 'golden hour rim light', options: ['golden hour rim light', 'soft window light', 'neon night glow', 'studio softbox', 'candlelit warm'], help: 'Primary lighting mood.' },
   style: { key: 'style', label: 'Style', type: 'text', required: true, default: 'cinematic editorial photography', help: 'Visual or writing style.' },
@@ -13,6 +40,26 @@ export const variableCatalog = {
   topic: { key: 'topic', label: 'Topic', type: 'text', required: true, default: 'product launch' },
   product: { key: 'product', label: 'Product', type: 'text', required: true, default: 'ceramic coffee mug' },
   brand: { key: 'brand', label: 'Brand voice', type: 'text', required: false, default: 'friendly and premium' },
+}
+
+/** Fields admins can enable per prompt (shown as inputs on selected cards). */
+export const personalizeFields = [
+  { key: 'name', label: 'Name', defaultHint: 'Enter her/his name' },
+  { key: 'age', label: 'Age', defaultHint: 'e.g. 24' },
+  { key: 'city', label: 'City', defaultHint: 'e.g. Mumbai' },
+  { key: 'outfit', label: 'Outfit', defaultHint: 'e.g. red saree' },
+]
+
+export function buildPersonalizeVariable(key, hint) {
+  const base = variableCatalog[key]
+  if (!base) return null
+  const field = personalizeFields.find((f) => f.key === key)
+  return {
+    ...base,
+    help: hint || field?.defaultHint || base.help || '',
+    placeholder: hint || field?.defaultHint || base.placeholder || base.label,
+    default: '',
+  }
 }
 
 export function vars(...keys) {

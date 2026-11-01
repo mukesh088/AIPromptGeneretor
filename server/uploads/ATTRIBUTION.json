@@ -1,424 +1,340 @@
 {
-  "generatedAt": "2026-10-30T20:39:53.307Z",
+  "generatedAt": "2026-10-31T17:54:56.808Z",
   "items": [
     {
-      "slug": "diwali-golden-portrait",
-      "title": "Diwali Golden Hour Portrait",
-      "file": "diwali-golden-portrait.jpg",
-      "unsplash": "https://unsplash.com/photos/1506905925346-21bda4d32df4",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "anniversary-couple-portrait",
-      "title": "Anniversary Couple Portrait",
-      "file": "anniversary-couple-portrait.jpg",
-      "unsplash": "https://unsplash.com/photos/1516589178581-6cd7833ae3b2",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "karwa-chauth-moonlit-look",
-      "title": "Karwa Chauth Moonlit Look",
-      "file": "karwa-chauth-moonlit-look.jpg",
+      "slug": "diwali-saree-night-girls",
+      "title": "Diwali Saree Night Glow — Girls",
+      "file": "diwali-saree-night-girls.jpg",
       "unsplash": "https://unsplash.com/photos/1529626455594-4ff0802cfb7e",
       "license": "Unsplash License"
     },
     {
-      "slug": "holi-color-splash-portrait",
-      "title": "Holi Color Splash Portrait",
-      "file": "holi-color-splash-portrait.jpg",
-      "unsplash": "https://unsplash.com/photos/1492684223066-81342ee5ff30",
+      "slug": "diwali-lehenga-balcony-girls",
+      "title": "Diwali Lehenga Balcony — Girls",
+      "file": "diwali-lehenga-balcony-girls.jpg",
+      "unsplash": "https://unsplash.com/photos/1610030469983-98e550d6193c",
       "license": "Unsplash License"
     },
     {
-      "slug": "navratri-garba-motion-freeze",
-      "title": "Navratri Garba Motion Freeze",
-      "file": "navratri-garba-motion-freeze.jpg",
-      "unsplash": "https://unsplash.com/photos/1555939594-58d7cb561ad1",
+      "slug": "diwali-mirror-selfie-girls",
+      "title": "Diwali Mirror Selfie Aesthetic — Girls",
+      "file": "diwali-mirror-selfie-girls.jpg",
+      "unsplash": "https://unsplash.com/photos/1515886657613-9f3515b0c78f",
       "license": "Unsplash License"
     },
     {
-      "slug": "rain-noir-alley-scene",
-      "title": "Rain Noir Alley Scene",
-      "file": "rain-noir-alley-scene.jpg",
-      "unsplash": "https://unsplash.com/photos/1519681393784-d120267933ba",
+      "slug": "diwali-couple-rooftop",
+      "title": "Diwali Couple Rooftop Portrait",
+      "file": "diwali-couple-rooftop.jpg",
+      "unsplash": "https://unsplash.com/photos/1522673607200-164d1b6ce486",
       "license": "Unsplash License"
     },
     {
-      "slug": "desert-epic-wide-hero",
-      "title": "Desert Epic Wide Hero",
-      "file": "desert-epic-wide-hero.jpg",
-      "unsplash": "https://unsplash.com/photos/1519681393784-d120267933ba",
+      "slug": "diwali-rangoli-pose-girls",
+      "title": "Diwali Rangoli Courtyard — Girls",
+      "file": "diwali-rangoli-pose-girls.jpg",
+      "unsplash": "https://unsplash.com/photos/1529626455594-4ff0802cfb7e",
       "license": "Unsplash License"
     },
     {
-      "slug": "neo-noir-neon-portrait",
-      "title": "Neo-Noir Neon Portrait",
-      "file": "neo-noir-neon-portrait.jpg",
-      "unsplash": "https://unsplash.com/photos/1550684848-fac1c5b4e853",
+      "slug": "diwali-kurta-boys",
+      "title": "Diwali Kurta Night — Boys",
+      "file": "diwali-kurta-boys.jpg",
+      "unsplash": "https://unsplash.com/photos/1506794778202-cad84cf45f1d",
       "license": "Unsplash License"
     },
     {
-      "slug": "seventies-film-grain-still",
-      "title": "Seventies Film Grain Still",
-      "file": "seventies-film-grain-still.jpg",
-      "unsplash": "https://unsplash.com/photos/1492691527719-9d1e07e534b4",
+      "slug": "diwali-terrace-boys",
+      "title": "Diwali Terrace Look — Boys",
+      "file": "diwali-terrace-boys.jpg",
+      "unsplash": "https://unsplash.com/photos/1500648767791-00dcc994a43e",
       "license": "Unsplash License"
     },
     {
-      "slug": "mumbai-chai-tapri-morning",
-      "title": "Mumbai Chai Tapri Morning",
-      "file": "mumbai-chai-tapri-morning.jpg",
-      "unsplash": "https://unsplash.com/photos/1544787219-7f47ccb76574",
+      "slug": "diwali-street-lights-boys",
+      "title": "Diwali Street Lights — Boys",
+      "file": "diwali-street-lights-boys.jpg",
+      "unsplash": "https://unsplash.com/photos/1492562080023-ab3db95bfbce",
       "license": "Unsplash License"
     },
     {
-      "slug": "old-delhi-cafe-window-seat",
-      "title": "Old Delhi Café Window Seat",
-      "file": "old-delhi-cafe-window-seat.jpg",
-      "unsplash": "https://unsplash.com/photos/1555939594-58d7cb561ad1",
+      "slug": "diwali-minimal-boys",
+      "title": "Minimal Diwali Portrait — Boys",
+      "file": "diwali-minimal-boys.jpg",
+      "unsplash": "https://unsplash.com/photos/1539571696357-5a69c17a67c6",
       "license": "Unsplash License"
     },
     {
-      "slug": "retro-scooter-lane-portrait",
-      "title": "Retro Scooter Lane Portrait",
-      "file": "retro-scooter-lane-portrait.jpg",
-      "unsplash": "https://unsplash.com/photos/1558981403-c5f9899a28bc",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "linkedin-executive-headshot",
-      "title": "LinkedIn Executive Headshot",
-      "file": "linkedin-executive-headshot.jpg",
-      "unsplash": "https://unsplash.com/photos/1560250097-0b93528c311a",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "creative-founder-headshot",
-      "title": "Creative Founder Headshot",
-      "file": "creative-founder-headshot.jpg",
-      "unsplash": "https://unsplash.com/photos/1573496359142-b8d87734a5a2",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "actor-casting-headshot",
-      "title": "Actor Casting Headshot",
-      "file": "actor-casting-headshot.jpg",
-      "unsplash": "https://unsplash.com/photos/1507003211169-0a1dd7228f2d",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "healthcare-professional-headshot",
-      "title": "Healthcare Professional Headshot",
-      "file": "healthcare-professional-headshot.jpg",
-      "unsplash": "https://unsplash.com/photos/1559839734-2b71ea197ec2",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "skincare-bottle-hero",
-      "title": "Skincare Bottle Hero",
-      "file": "skincare-bottle-hero.jpg",
-      "unsplash": "https://unsplash.com/photos/1556228720-195a672e8a03",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "floating-sneaker-product",
-      "title": "Floating Sneaker Product",
-      "file": "floating-sneaker-product.jpg",
-      "unsplash": "https://unsplash.com/photos/1542291026-7eec264c27ff",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "jewelry-macro-sparkle",
-      "title": "Jewelry Macro Sparkle",
-      "file": "jewelry-macro-sparkle.jpg",
-      "unsplash": "https://unsplash.com/photos/1515562141207-7a88fb7ce338",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "tech-gadget-desk-flatlay",
-      "title": "Tech Gadget Desk Flatlay",
-      "file": "tech-gadget-desk-flatlay.jpg",
-      "unsplash": "https://unsplash.com/photos/1498050108023-c5249f4df085",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "japandi-living-room",
-      "title": "Japandi Living Room",
-      "file": "japandi-living-room.jpg",
-      "unsplash": "https://unsplash.com/photos/1586023492125-27b2c045efd7",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "cozy-reading-nook",
-      "title": "Cozy Reading Nook",
-      "file": "cozy-reading-nook.jpg",
-      "unsplash": "https://unsplash.com/photos/1586023492125-27b2c045efd7",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "creator-studio-workspace",
-      "title": "Creator Studio Workspace",
-      "file": "creator-studio-workspace.jpg",
-      "unsplash": "https://unsplash.com/photos/1497366216548-37526070297c",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "youtube-shock-face-thumbnail",
-      "title": "YouTube Shock Face Thumbnail",
-      "file": "youtube-shock-face-thumbnail.jpg",
-      "unsplash": "https://unsplash.com/photos/1586023492125-27b2c045efd7",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "podcast-episode-cover",
-      "title": "Podcast Episode Cover",
-      "file": "podcast-episode-cover.jpg",
-      "unsplash": "https://unsplash.com/photos/1506905925346-21bda4d32df4",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "gaming-stream-thumbnail",
-      "title": "Gaming Stream Thumbnail",
-      "file": "gaming-stream-thumbnail.jpg",
-      "unsplash": "https://unsplash.com/photos/1542751371-adc38448a05e",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "botanical-editorial-illustration",
-      "title": "Botanical Editorial Illustration",
-      "file": "botanical-editorial-illustration.jpg",
-      "unsplash": "https://unsplash.com/photos/1490750967868-88aa4486c946",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "children-book-character",
-      "title": "Children’s Book Character",
-      "file": "children-book-character.jpg",
-      "unsplash": "https://unsplash.com/photos/1490750967868-88aa4486c946",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "isometric-city-block",
-      "title": "Isometric City Block",
-      "file": "isometric-city-block.jpg",
-      "unsplash": "https://unsplash.com/photos/1477959858617-67f85cf4f1df",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "watercolor-travel-postcard",
-      "title": "Watercolor Travel Postcard",
-      "file": "watercolor-travel-postcard.jpg",
-      "unsplash": "https://unsplash.com/photos/1506905925346-21bda4d32df4",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "dosa-steam-street-food",
-      "title": "Dosa Steam Street Food",
-      "file": "dosa-steam-street-food.jpg",
-      "unsplash": "https://unsplash.com/photos/1585937421612-70a008356fbe",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "chai-latte-art-overhead",
-      "title": "Chai Latte Art Overhead",
-      "file": "chai-latte-art-overhead.jpg",
-      "unsplash": "https://unsplash.com/photos/1555939594-58d7cb561ad1",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "himalayan-sunrise-ridge",
-      "title": "Himalayan Sunrise Ridge",
-      "file": "himalayan-sunrise-ridge.jpg",
-      "unsplash": "https://unsplash.com/photos/1464822759023-fed622ff2c3b",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "kerala-backwaters-boat",
-      "title": "Kerala Backwaters Boat",
-      "file": "kerala-backwaters-boat.jpg",
-      "unsplash": "https://unsplash.com/photos/1507525428034-b723cf961d3e",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "retro-bollywood-poster-portrait",
-      "title": "Retro Bollywood Poster Portrait",
-      "file": "retro-bollywood-poster-portrait.jpg",
-      "unsplash": "https://unsplash.com/photos/1534528741775-53994a69daeb",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "eid-family-soft-portrait",
-      "title": "Eid Family Soft Portrait",
-      "file": "eid-family-soft-portrait.jpg",
+      "slug": "diwali-family-festive",
+      "title": "Festive Family Diwali Glow",
+      "file": "diwali-family-festive.jpg",
       "unsplash": "https://unsplash.com/photos/1511895426328-dc8714191300",
       "license": "Unsplash License"
     },
     {
-      "slug": "portrait-breeze-hair-motion",
-      "title": "Portrait Breeze Hair Motion",
-      "file": "portrait-breeze-hair-motion.jpg",
+      "slug": "casino-royale-couple",
+      "title": "Casino Royale Cinematic — Couple",
+      "file": "casino-royale-couple.jpg",
+      "unsplash": "https://unsplash.com/photos/1516589178581-6cd7833ae3b2",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "sunset-couple-portrait",
+      "title": "Golden Hour Couple Portrait",
+      "file": "sunset-couple-portrait.jpg",
+      "unsplash": "https://unsplash.com/photos/1518199266791-5375a83190b7",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "monsoon-cafe-couple",
+      "title": "Monsoon Cafe Couple",
+      "file": "monsoon-cafe-couple.jpg",
+      "unsplash": "https://unsplash.com/photos/1529636798458-92182e662485",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "aesthetic-cafe-girls",
+      "title": "Aesthetic Cafe Photo Prompt for Girls",
+      "file": "aesthetic-cafe-girls.jpg",
       "unsplash": "https://unsplash.com/photos/1529626455594-4ff0802cfb7e",
       "license": "Unsplash License"
     },
     {
-      "slug": "fabric-swirl-slow-motion",
-      "title": "Fabric Swirl Slow Motion",
-      "file": "fabric-swirl-slow-motion.jpg",
+      "slug": "words-of-the-heart-girls",
+      "title": "Words of the Heart Cinematic — Girls",
+      "file": "words-of-the-heart-girls.jpg",
+      "unsplash": "https://unsplash.com/photos/1494790108377-be9c29b29330",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "bold-horizon-girls",
+      "title": "Bold Horizon Cinematic — Girls",
+      "file": "bold-horizon-girls.jpg",
+      "unsplash": "https://unsplash.com/photos/1487412720507-e7ab37603c6f",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "honey-fire-girls",
+      "title": "Honey & Fire Cinematic — Girls",
+      "file": "honey-fire-girls.jpg",
+      "unsplash": "https://unsplash.com/photos/1534528741775-53994a69daeb",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "urban-street-boys",
+      "title": "Urban Street Style — Boys",
+      "file": "urban-street-boys.jpg",
+      "unsplash": "https://unsplash.com/photos/1507003211169-0a1dd7228f2d",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "car-night-boys",
+      "title": "Night Car Portrait — Boys",
+      "file": "car-night-boys.jpg",
+      "unsplash": "https://unsplash.com/photos/1492144534655-ae79c964c9d7",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "car-sunset-boys",
+      "title": "Sunset Car Look — Boys",
+      "file": "car-sunset-boys.jpg",
+      "unsplash": "https://unsplash.com/photos/1503376780353-7e6692767b70",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "rakhi-sibling-portrait",
+      "title": "Raksha Bandhan Sibling Portrait",
+      "file": "rakhi-sibling-portrait.jpg",
+      "unsplash": "https://unsplash.com/photos/1511795409834-ef04bbd61622",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "rakhi-festive-girls",
+      "title": "Rakhi Festive Look — Girls",
+      "file": "rakhi-festive-girls.jpg",
+      "unsplash": "https://unsplash.com/photos/1594744803329-e58b31de8bf5",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "1980s-retro-girls",
+      "title": "1980s Retro Film Look — Girls",
+      "file": "1980s-retro-girls.jpg",
+      "unsplash": "https://unsplash.com/photos/1469334031218-e382a71b716b",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "1980s-retro-boys",
+      "title": "1980s Retro Film Look — Boys",
+      "file": "1980s-retro-boys.jpg",
+      "unsplash": "https://unsplash.com/photos/1488161628813-04466f872be2",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "ganesh-chaturthi-devotional",
+      "title": "Ganesh Chaturthi Devotional Portrait",
+      "file": "ganesh-chaturthi-devotional.jpg",
+      "unsplash": "https://unsplash.com/photos/1567593810070-7a3d471af022",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "ganesh-festive-girls",
+      "title": "Ganesh Festive Look — Girls",
+      "file": "ganesh-festive-girls.jpg",
       "unsplash": "https://unsplash.com/photos/1529626455594-4ff0802cfb7e",
       "license": "Unsplash License"
     },
     {
-      "slug": "product-reveal-unbox-spin",
-      "title": "Product Reveal Unbox Spin",
-      "file": "product-reveal-unbox-spin.jpg",
-      "unsplash": "https://unsplash.com/photos/1523275335684-37898b6baf30",
+      "slug": "birthday-cake-girls",
+      "title": "Birthday Cake Portrait — Girls",
+      "file": "birthday-cake-girls.jpg",
+      "unsplash": "https://unsplash.com/photos/1464349095431-e9a21285b5f3",
       "license": "Unsplash License"
     },
     {
-      "slug": "perfume-mist-macro-video",
-      "title": "Perfume Mist Macro Video",
-      "file": "perfume-mist-macro-video.jpg",
-      "unsplash": "https://unsplash.com/photos/1541643600914-78b084683601",
+      "slug": "birthday-party-boys",
+      "title": "Birthday Party Look — Boys",
+      "file": "birthday-party-boys.jpg",
+      "unsplash": "https://unsplash.com/photos/1530103862676-de8c9debad1d",
       "license": "Unsplash License"
     },
     {
-      "slug": "mughal-miniature-story-morph",
-      "title": "Mughal Miniature Story Morph",
-      "file": "mughal-miniature-story-morph.jpg",
-      "unsplash": "https://unsplash.com/photos/1564507592333-c60657eea523",
+      "slug": "birthday-couple",
+      "title": "Birthday Couple Celebration",
+      "file": "birthday-couple.jpg",
+      "unsplash": "https://unsplash.com/photos/1464366400600-7168b8af9bc3",
       "license": "Unsplash License"
     },
     {
-      "slug": "independence-era-photo-montage",
-      "title": "Independence Era Photo Montage",
-      "file": "independence-era-photo-montage.jpg",
-      "unsplash": "https://unsplash.com/photos/1564507592333-c60657eea523",
+      "slug": "scarlet-reflections-girls",
+      "title": "Scarlet Reflections Cinematic — Girls",
+      "file": "scarlet-reflections-girls.jpg",
+      "unsplash": "https://unsplash.com/photos/1524504388940-b1c1722653e1",
       "license": "Unsplash License"
     },
     {
-      "slug": "tandoor-sizzle-close-up",
-      "title": "Tandoor Sizzle Close-Up",
-      "file": "tandoor-sizzle-close-up.jpg",
+      "slug": "midnight-minimal-girls",
+      "title": "Midnight Minimal Cinematic — Girls",
+      "file": "midnight-minimal-girls.jpg",
+      "unsplash": "https://unsplash.com/photos/1517841905240-472988babdf9",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "car-drive-mood-boys",
+      "title": "Drive Mood Car Portrait — Boys",
+      "file": "car-drive-mood-boys.jpg",
+      "unsplash": "https://unsplash.com/photos/1549317661-bd32c8ce0db2",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "navratri-garba-girls",
+      "title": "Navratri Garba Night — Girls",
+      "file": "navratri-garba-girls.jpg",
+      "unsplash": "https://unsplash.com/photos/1529626455594-4ff0802cfb7e",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "navratri-festive-boys",
+      "title": "Navratri Festive — Boys",
+      "file": "navratri-festive-boys.jpg",
+      "unsplash": "https://unsplash.com/photos/1506794778202-cad84cf45f1d",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "viral-template-collage",
+      "title": "Viral Collage Template Look",
+      "file": "viral-template-collage.jpg",
       "unsplash": "https://unsplash.com/photos/1555939594-58d7cb561ad1",
       "license": "Unsplash License"
     },
     {
-      "slug": "pastry-glaze-pour-macro",
-      "title": "Pastry Glaze Pour Macro",
-      "file": "pastry-glaze-pour-macro.jpg",
-      "unsplash": "https://unsplash.com/photos/1578985545062-69928b1d9587",
+      "slug": "vn-style-cinematic-cut",
+      "title": "VN-Style Cinematic Still",
+      "file": "vn-style-cinematic-cut.jpg",
+      "unsplash": "https://unsplash.com/photos/1485846234645-a62644f84728",
       "license": "Unsplash License"
     },
     {
-      "slug": "train-window-travel-drift",
-      "title": "Train Window Travel Drift",
-      "file": "train-window-travel-drift.jpg",
+      "slug": "capcut-trend-portrait",
+      "title": "CapCut Trend Portrait Style",
+      "file": "capcut-trend-portrait.jpg",
+      "unsplash": "https://unsplash.com/photos/1529626455594-4ff0802cfb7e",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "anime-cartoon-transform",
+      "title": "Cartoon & Anime Transform",
+      "file": "anime-cartoon-transform.jpg",
+      "unsplash": "https://unsplash.com/photos/1578632767115-351597cf2477",
+      "license": "Unsplash License"
+    },
+    {
+      "slug": "travel-mountain-portrait",
+      "title": "Travel Mountain Portrait",
+      "file": "travel-mountain-portrait.jpg",
       "unsplash": "https://unsplash.com/photos/1464822759023-fed622ff2c3b",
       "license": "Unsplash License"
     },
     {
-      "slug": "desert-caravan-aerial-drift",
-      "title": "Desert Caravan Aerial Drift",
-      "file": "desert-caravan-aerial-drift.jpg",
-      "unsplash": "https://unsplash.com/photos/1464822759023-fed622ff2c3b",
+      "slug": "horror-cinematic-boys",
+      "title": "Horror Photo Prompt — Boys",
+      "file": "horror-cinematic-boys.jpg",
+      "unsplash": "https://unsplash.com/photos/1509248961158-e54f6934749c",
       "license": "Unsplash License"
     },
     {
-      "slug": "explainer-whiteboard-camera-move",
-      "title": "Explainer Whiteboard Camera Move",
-      "file": "explainer-whiteboard-camera-move.jpg",
-      "unsplash": "https://unsplash.com/photos/1434030216411-0b793f4b4173",
+      "slug": "wedding-bridal-portrait",
+      "title": "Wedding Bridal Portrait",
+      "file": "wedding-bridal-portrait.jpg",
+      "unsplash": "https://unsplash.com/photos/1519741497674-611481863552",
       "license": "Unsplash License"
     },
     {
-      "slug": "library-dolly-push-through",
-      "title": "Library Dolly Push Through",
-      "file": "library-dolly-push-through.jpg",
-      "unsplash": "https://unsplash.com/photos/1519681393784-d120267933ba",
+      "slug": "wedding-couple-portrait",
+      "title": "Wedding Couple Portrait",
+      "file": "wedding-couple-portrait.jpg",
+      "unsplash": "https://unsplash.com/photos/1511285560929-80b456fea0bc",
       "license": "Unsplash License"
     },
     {
-      "slug": "youtube-script-outline",
-      "title": "YouTube Script Outline",
-      "file": "youtube-script-outline.jpg",
-      "unsplash": "https://unsplash.com/photos/1486312338219-ce68d2c6f44d",
+      "slug": "selfie-golden-hour-girls",
+      "title": "Golden Hour Selfie — Girls",
+      "file": "selfie-golden-hour-girls.jpg",
+      "unsplash": "https://unsplash.com/photos/1438761681033-6461ffad8d80",
       "license": "Unsplash License"
     },
     {
-      "slug": "weekly-study-timetable",
-      "title": "Weekly Study Timetable",
-      "file": "weekly-study-timetable.jpg",
-      "unsplash": "https://unsplash.com/photos/1434030216411-0b793f4b4173",
+      "slug": "collage-memory-wall",
+      "title": "Memory Wall Collage Prompt",
+      "file": "collage-memory-wall.jpg",
+      "unsplash": "https://unsplash.com/photos/1452587925148-ce544e77e70d",
       "license": "Unsplash License"
     },
     {
-      "slug": "banking-exam-revision-sprint",
-      "title": "Banking Exam Revision Sprint",
-      "file": "banking-exam-revision-sprint.jpg",
-      "unsplash": "https://unsplash.com/photos/1454165804606-c3d57bc86b40",
+      "slug": "portrait-studio-clean",
+      "title": "Clean Studio Portrait",
+      "file": "portrait-studio-clean.jpg",
+      "unsplash": "https://unsplash.com/photos/1531746020798-e6953c6e8e04",
       "license": "Unsplash License"
     },
     {
-      "slug": "interview-star-answer-bank",
-      "title": "Interview STAR Answer Bank",
-      "file": "interview-star-answer-bank.jpg",
-      "unsplash": "https://unsplash.com/photos/1521737711867-e3b97375f902",
+      "slug": "aesthetic-pastel-girls",
+      "title": "Pastel Aesthetic — Girls",
+      "file": "aesthetic-pastel-girls.jpg",
+      "unsplash": "https://unsplash.com/photos/1524504388940-b1c1722653e1",
       "license": "Unsplash License"
     },
     {
-      "slug": "blog-post-outline-seo",
-      "title": "Blog Post Outline (SEO)",
-      "file": "blog-post-outline-seo.jpg",
-      "unsplash": "https://unsplash.com/photos/1486312338219-ce68d2c6f44d",
+      "slug": "festive-days-general",
+      "title": "Festive Day Celebration Portrait",
+      "file": "festive-days-general.jpg",
+      "unsplash": "https://unsplash.com/photos/1511795409834-ef04bbd61622",
       "license": "Unsplash License"
     },
     {
-      "slug": "social-content-plan-30-days",
-      "title": "Social Content Plan (30 Days)",
-      "file": "social-content-plan-30-days.jpg",
-      "unsplash": "https://unsplash.com/photos/1611224923853-80b023f02d71",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "professional-email-drafter",
-      "title": "Professional Email Drafter",
-      "file": "professional-email-drafter.jpg",
-      "unsplash": "https://unsplash.com/photos/1486312338219-ce68d2c6f44d",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "code-explanation-walkthrough",
-      "title": "Code Explanation Walkthrough",
-      "file": "code-explanation-walkthrough.jpg",
-      "unsplash": "https://unsplash.com/photos/1461749280684-dccba630e2f6",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "presentation-outline-slides",
-      "title": "Presentation Outline (Slides)",
-      "file": "presentation-outline-slides.jpg",
-      "unsplash": "https://unsplash.com/photos/1552664730-d307ca884978",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "product-description-ecommerce",
-      "title": "Product Description (E‑commerce)",
-      "file": "product-description-ecommerce.jpg",
-      "unsplash": "https://unsplash.com/photos/1556742049-0cfed4f6a45d",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "spreadsheet-formula-helper",
-      "title": "Spreadsheet Formula Helper",
-      "file": "spreadsheet-formula-helper.jpg",
-      "unsplash": "https://unsplash.com/photos/1551288049-bebda4e38f71",
-      "license": "Unsplash License"
-    },
-    {
-      "slug": "meeting-summary-action-items",
-      "title": "Meeting Summary & Action Items",
-      "file": "meeting-summary-action-items.jpg",
-      "unsplash": "https://unsplash.com/photos/1556761175-b413da4baf72",
+      "slug": "horror-aesthetic-girls",
+      "title": "Dark Aesthetic Horror Mood — Girls",
+      "file": "horror-aesthetic-girls.jpg",
+      "unsplash": "https://unsplash.com/photos/1515886657613-9f3515b0c78f",
       "license": "Unsplash License"
     }
   ]
