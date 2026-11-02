@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1c1917"/>
+      <stop offset="55%" stop-color="#292524"/>
+      <stop offset="100%" stop-color="#44403c"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="rgba(255,255,255,0.08)"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <rect width="800" height="1000" fill="url(#dots)"/>
+  <rect x="48" y="48" width="704" height="904" rx="28" fill="none" stroke="rgba(251,191,36,0.45)" stroke-width="3" stroke-dasharray="14 10"/>
+  <circle cx="400" cy="390" r="92" fill="rgba(251,191,36,0.12)" stroke="rgba(251,191,36,0.55)" stroke-width="3"/>
+  <path d="M352 390 h56 M400 338 v104" stroke="rgba(251,191,36,0.85)" stroke-width="8" stroke-linecap="round"/>
+  <text x="400" y="560" text-anchor="middle" font-family="Georgia, serif" font-size="36" fill="#fafaf9">AI photo placeholder</text>
+  <text x="400" y="610" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" fill="#a8a29e">Replace in Admin → Upload image</text>
+  <text x="400" y="900" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#78716c">Promptora dummy preview</text>
+</svg>

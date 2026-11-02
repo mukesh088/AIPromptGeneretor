@@ -1,4 +1,10 @@
-const BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000'
+// Empty string = same-origin (production / Hostinger). Dev defaults to local API.
+const BASE =
+  import.meta.env.VITE_API_BASE_URL !== undefined && import.meta.env.VITE_API_BASE_URL !== ''
+    ? import.meta.env.VITE_API_BASE_URL
+    : import.meta.env.PROD
+      ? ''
+      : 'http://localhost:4000'
 
 function authHeaders() {
   const token = localStorage.getItem('promptora_token')

@@ -30,6 +30,7 @@ router.post('/register', async (req, res, next) => {
     res.cookie('promptora_session', token, {
       httpOnly: true,
       sameSite: 'lax',
+      secure: process.env.NODE_ENV === 'production',
       maxAge: 7 * 24 * 60 * 60 * 1000,
     })
     res.status(201).json({ user: publicUser(user), token })
@@ -49,6 +50,7 @@ router.post('/login', async (req, res, next) => {
     res.cookie('promptora_session', token, {
       httpOnly: true,
       sameSite: 'lax',
+      secure: process.env.NODE_ENV === 'production',
       maxAge: 7 * 24 * 60 * 60 * 1000,
     })
     res.json({ user: publicUser(user), token })

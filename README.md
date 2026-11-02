@@ -2,11 +2,55 @@
 
 AI prompt discovery platform with React frontend + Express/SQLite admin API.
 
-## Why photos were missing
+## Hostinger (Node.js app)
 
-Phase 1 used **CSS gradient placeholders** (no real image files). The app now loads **real preview photos** (illustrative stock via Lorem Picsum) and you can **upload your own images** in Admin.
+This repo is set up as **one Node.js app**: Express serves the API and the built React UI.
 
-## Run both apps
+### hPanel settings
+
+| Setting | Value |
+| --- | --- |
+| App type | `express` (or Node.js) |
+| Node version | **20** or **22** |
+| Root directory | `.` (repo root) |
+| Entry file | `server/src/index.js` |
+| Build script | `build` |
+| Start / run | `start` → `node server/src/index.js` |
+
+### What Hostinger runs
+
+```bash
+npm install   # also installs server + client + prisma generate
+npm run build # builds client → client/dist
+npm start     # Express on PORT (API + web)
+```
+
+### Environment variables (hPanel → Node.js → Environment)
+
+Copy from `server/.env.example`. Minimum:
+
+```
+DATABASE_URL=file:./dev.db
+NODE_ENV=production
+JWT_SECRET=use-a-long-random-string
+SESSION_SECRET=use-another-long-random-string
+ADMIN_EMAIL=admin@admin.local
+ADMIN_PASSWORD=change-me
+CLIENT_ORIGIN=
+```
+
+`CLIENT_ORIGIN` can stay empty when the site is served by this same app (same origin).
+
+SQLite DB file: `server/prisma/dev.db` (included). Uploads: `server/uploads/`.
+
+### Upload options
+
+1. **Zip the project** (exclude `node_modules`, `client/dist`, `.git`) and deploy as Node.js in hPanel, **or**
+2. Connect the GitHub repo and deploy branch `main` as type `nodejs`.
+
+Do **not** upload only the `client/` folder — Hostinger must start the Express entry file above.
+
+## Local development
 
 ### 1) API + database
 
@@ -36,6 +80,16 @@ App: http://localhost:5173
 VITE_API_BASE_URL=http://localhost:4000
 VITE_USE_API=true
 ```
+
+### Production locally (same as Hostinger)
+
+```bash
+npm install
+npm run build
+npm start
+```
+
+Then open http://localhost:4000
 
 ## How to add prompts, images, categories
 
